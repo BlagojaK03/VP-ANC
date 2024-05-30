@@ -16,15 +16,5 @@ namespace VP_ANC
 		{
 			InitializeComponent();
 		}
-
-		private void ancMainWindow_Load(object sender, EventArgs e)
-		{
-			MessageBox.Show("Welcome!\nThe goal is simple: use this calculator to get 5 as a result!", "A Normal Calculator - ANC");
-		}
-
-		private void ancMainWindow_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (e.KeyChar == '5') { throw new FiveOnKeyboardPressedException("You Did It!!"); }
-		}
 	}
 }
