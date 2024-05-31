@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ancMainWindow));
 			this.button0 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
 			this.buttonDecimal = new System.Windows.Forms.Button();
@@ -55,8 +56,20 @@
 			this.btnCos = new System.Windows.Forms.Button();
 			this.btnSin = new System.Windows.Forms.Button();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.appToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.matrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.conversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.stayOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.button12 = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -242,23 +255,30 @@
 			// 
 			// btnRoot
 			// 
-			this.btnRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnRoot.Location = new System.Drawing.Point(464, 302);
 			this.btnRoot.Name = "btnRoot";
 			this.btnRoot.Size = new System.Drawing.Size(64, 64);
 			this.btnRoot.TabIndex = 18;
-			this.btnRoot.Text = "n-rt(x)";
+			this.btnRoot.Text = "nrt(x)";
 			this.btnRoot.UseVisualStyleBackColor = true;
 			// 
 			// numberBox
 			// 
 			this.numberBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.numberBox.Enabled = false;
-			this.numberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.numberBox.BackColor = System.Drawing.Color.GhostWhite;
+			this.numberBox.DetectUrls = false;
+			this.numberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.numberBox.ForeColor = System.Drawing.Color.Black;
 			this.numberBox.Location = new System.Drawing.Point(12, 27);
+			this.numberBox.Multiline = false;
 			this.numberBox.Name = "numberBox";
+			this.numberBox.ReadOnly = true;
+			this.numberBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.numberBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
 			this.numberBox.Size = new System.Drawing.Size(516, 132);
 			this.numberBox.TabIndex = 19;
+			this.numberBox.TabStop = false;
 			this.numberBox.Text = "0";
 			// 
 			// button10
@@ -321,33 +341,129 @@
 			// 
 			// menuStrip1
 			// 
+			this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.appToolStripMenuItem});
+            this.themeToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.propertiesToolStripMenuItem,
+            this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(540, 24);
 			this.menuStrip1.TabIndex = 26;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// appToolStripMenuItem
+			// themeToolStripMenuItem
 			// 
-			this.appToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-			this.appToolStripMenuItem.Name = "appToolStripMenuItem";
-			this.appToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-			this.appToolStripMenuItem.Text = "App";
+			this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lightToolStripMenuItem,
+            this.darkToolStripMenuItem,
+            this.matrixToolStripMenuItem});
+			this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+			this.themeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+			this.themeToolStripMenuItem.Text = "Theme";
+			this.themeToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.themeToolStripMenuItem_DropDownItemClicked);
 			// 
-			// exitToolStripMenuItem
+			// lightToolStripMenuItem
 			// 
-			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.exitToolStripMenuItem.Text = "Exit";
+			this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
+			this.lightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.lightToolStripMenuItem.Text = "Light";
+			// 
+			// darkToolStripMenuItem
+			// 
+			this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
+			this.darkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.darkToolStripMenuItem.Text = "Dark";
+			// 
+			// matrixToolStripMenuItem
+			// 
+			this.matrixToolStripMenuItem.Name = "matrixToolStripMenuItem";
+			this.matrixToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.matrixToolStripMenuItem.Text = "Matrix";
+			// 
+			// toolsToolStripMenuItem
+			// 
+			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.conversionToolStripMenuItem});
+			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+			this.toolsToolStripMenuItem.Text = "Tools";
+			// 
+			// conversionToolStripMenuItem
+			// 
+			this.conversionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.distanceToolStripMenuItem,
+            this.temperatureToolStripMenuItem});
+			this.conversionToolStripMenuItem.Name = "conversionToolStripMenuItem";
+			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.conversionToolStripMenuItem.Text = "Conversion";
+			// 
+			// distanceToolStripMenuItem
+			// 
+			this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
+			this.distanceToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.distanceToolStripMenuItem.Text = "Distance";
+			// 
+			// temperatureToolStripMenuItem
+			// 
+			this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
+			this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.temperatureToolStripMenuItem.Text = "Temperature";
+			// 
+			// propertiesToolStripMenuItem
+			// 
+			this.propertiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stayOnTopToolStripMenuItem});
+			this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
+			this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+			this.propertiesToolStripMenuItem.Text = "Properties";
+			// 
+			// stayOnTopToolStripMenuItem
+			// 
+			this.stayOnTopToolStripMenuItem.Name = "stayOnTopToolStripMenuItem";
+			this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.stayOnTopToolStripMenuItem.Text = "Stay on top";
+			this.stayOnTopToolStripMenuItem.Click += new System.EventHandler(this.stayOnTopToolStripMenuItem_Click);
+			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.documentationToolStripMenuItem,
+            this.githubToolStripMenuItem});
+			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.helpToolStripMenuItem.Text = "Help";
+			// 
+			// documentationToolStripMenuItem
+			// 
+			this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
+			this.documentationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.documentationToolStripMenuItem.Text = "Documentation";
+			// 
+			// githubToolStripMenuItem
+			// 
+			this.githubToolStripMenuItem.Name = "githubToolStripMenuItem";
+			this.githubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.githubToolStripMenuItem.Text = "Github";
+			this.githubToolStripMenuItem.Click += new System.EventHandler(this.githubToolStripMenuItem_Click);
+			// 
+			// button12
+			// 
+			this.button12.Location = new System.Drawing.Point(222, 232);
+			this.button12.Name = "button12";
+			this.button12.Size = new System.Drawing.Size(96, 23);
+			this.button12.TabIndex = 27;
+			this.button12.Text = "button12";
+			this.button12.UseVisualStyleBackColor = true;
 			// 
 			// ancMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.LightGray;
 			this.ClientSize = new System.Drawing.Size(540, 517);
+			this.Controls.Add(this.button12);
 			this.Controls.Add(this.btnSin);
 			this.Controls.Add(this.btnCos);
 			this.Controls.Add(this.btnTan);
@@ -376,6 +492,7 @@
 			this.Controls.Add(this.button0);
 			this.Controls.Add(this.menuStrip1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.MaximizeBox = false;
 			this.Name = "ancMainWindow";
@@ -417,8 +534,20 @@
 		private System.Windows.Forms.Button btnCos;
 		private System.Windows.Forms.Button btnSin;
 		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem appToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem lightToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem darkToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem matrixToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem stayOnTopToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem conversionToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem distanceToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem temperatureToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
+		private System.Windows.Forms.Button button12;
 	}
 }
 

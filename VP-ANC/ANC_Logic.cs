@@ -1,48 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace VP_ANC
 {
 
-	internal class ANC_Logic
+	internal static class Calculate
 	{
-		public void Addition(string arg1, string arg2)
+		public static void Addition()
 		{
 			
 		}
 
 		//TODO: Add logic to methods
-		public void Subtraction(string arg1, string arg2)
+		public static void Subtraction()
 		{
 			
 		}
-		public void Multiplication()
+		public static void Multiplication()
 		{
 
 		}
-		public void Divide()
+		public static void Divide()
 		{
 
 		}
-		public void Modulo()
+		public static void Modulo()
 		{
 
 		}
-		public void Factorial()
+		public static void Factorial()
 		{
 			
 		}
-		public void Power()
+		public static void Power()
 		{
 
 		}
-		public void Root()
+		public static void Root()
 		{
 
+		}
+	}
+
+	internal class AppTheme
+	{
+		ToolStripMenuItem Current;
+		public AppTheme(ToolStripMenuItem tsmi)
+		{
+			Current = tsmi;
+			ChangeTheme(tsmi);
+		}
+
+		private void ApplyChanges(
+			Color Background,
+			Color ButtonBackground,
+			Color ButtonText,
+			Color NumBoxBackground,
+			Color NumBoxText,
+			Color ToolStripBackground,
+			Color ToolStripText
+		)
+		{
+
+		}
+
+		public void ChangeTheme(ToolStripMenuItem tsmi)
+		{
+			if (Current == tsmi && Current.Checked)
+			{
+				return;
+			}
+
+			Current.Checked = false;
+			Current = tsmi;
+			Current.Checked = true;
 		}
 	}
 }
