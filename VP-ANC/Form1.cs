@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,16 +17,18 @@ namespace VP_ANC
 	{
 		AppTheme theme;
 		Dictionary<string, ToolStripMenuItem> themes;
+		bool isStarting;
 
 		public ancMainWindow()
 		{
 			InitializeComponent();
-			theme = new AppTheme(lightToolStripMenuItem);
+			isStarting = true;
 			themes = new Dictionary<string, ToolStripMenuItem>();
 			foreach (ToolStripMenuItem item in themeToolStripMenuItem.DropDownItems)
 			{
 				themes[item.Text] = item;
 			}
+			Activated += new EventHandler(ancMainWindow_Activated);
 		}
 
 		private void stayOnTopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,6 +54,13 @@ namespace VP_ANC
 		{
 			string selectedItem = e.ClickedItem.Text;
 			theme.ChangeTheme(themes[selectedItem]);
+		}
+
+		private void ancMainWindow_Activated(object sender, EventArgs e)
+		{
+			if (!isStarting) return;
+			isStarting = false;
+			theme = new AppTheme(lightToolStripMenuItem);
 		}
 	}
 }

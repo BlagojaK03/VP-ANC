@@ -60,6 +60,7 @@
 			this.lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.matrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.blackoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.conversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +71,7 @@
 			this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.button12 = new System.Windows.Forms.Button();
+			this.enEeEsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -196,7 +198,7 @@
 			// btnDivide
 			// 
 			this.btnDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnDivide.Location = new System.Drawing.Point(394, 442);
+			this.btnDivide.Location = new System.Drawing.Point(394, 441);
 			this.btnDivide.Name = "btnDivide";
 			this.btnDivide.Size = new System.Drawing.Size(64, 64);
 			this.btnDivide.TabIndex = 12;
@@ -206,7 +208,7 @@
 			// btnMultiply
 			// 
 			this.btnMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnMultiply.Location = new System.Drawing.Point(394, 371);
+			this.btnMultiply.Location = new System.Drawing.Point(394, 372);
 			this.btnMultiply.Name = "btnMultiply";
 			this.btnMultiply.Size = new System.Drawing.Size(64, 64);
 			this.btnMultiply.TabIndex = 13;
@@ -256,7 +258,7 @@
 			// btnRoot
 			// 
 			this.btnRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnRoot.Location = new System.Drawing.Point(464, 302);
+			this.btnRoot.Location = new System.Drawing.Point(464, 301);
 			this.btnRoot.Name = "btnRoot";
 			this.btnRoot.Size = new System.Drawing.Size(64, 64);
 			this.btnRoot.TabIndex = 18;
@@ -267,6 +269,7 @@
 			// 
 			this.numberBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.numberBox.BackColor = System.Drawing.Color.GhostWhite;
+			this.numberBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.numberBox.DetectUrls = false;
 			this.numberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.numberBox.ForeColor = System.Drawing.Color.Black;
@@ -332,7 +335,7 @@
 			// btnSin
 			// 
 			this.btnSin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnSin.Location = new System.Drawing.Point(324, 232);
+			this.btnSin.Location = new System.Drawing.Point(324, 231);
 			this.btnSin.Name = "btnSin";
 			this.btnSin.Size = new System.Drawing.Size(64, 64);
 			this.btnSin.TabIndex = 25;
@@ -355,10 +358,13 @@
 			// 
 			// themeToolStripMenuItem
 			// 
+			this.themeToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
 			this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lightToolStripMenuItem,
             this.darkToolStripMenuItem,
-            this.matrixToolStripMenuItem});
+            this.matrixToolStripMenuItem,
+            this.blackoutToolStripMenuItem,
+            this.enEeEsToolStripMenuItem});
 			this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
 			this.themeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
 			this.themeToolStripMenuItem.Text = "Theme";
@@ -382,6 +388,12 @@
 			this.matrixToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.matrixToolStripMenuItem.Text = "Matrix";
 			// 
+			// blackoutToolStripMenuItem
+			// 
+			this.blackoutToolStripMenuItem.Name = "blackoutToolStripMenuItem";
+			this.blackoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.blackoutToolStripMenuItem.Text = "Blackout";
+			// 
 			// toolsToolStripMenuItem
 			// 
 			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -396,7 +408,7 @@
             this.distanceToolStripMenuItem,
             this.temperatureToolStripMenuItem});
 			this.conversionToolStripMenuItem.Name = "conversionToolStripMenuItem";
-			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.conversionToolStripMenuItem.Text = "Conversion";
 			// 
 			// distanceToolStripMenuItem
@@ -422,7 +434,7 @@
 			// stayOnTopToolStripMenuItem
 			// 
 			this.stayOnTopToolStripMenuItem.Name = "stayOnTopToolStripMenuItem";
-			this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.stayOnTopToolStripMenuItem.Text = "Stay on top";
 			this.stayOnTopToolStripMenuItem.Click += new System.EventHandler(this.stayOnTopToolStripMenuItem_Click);
 			// 
@@ -438,13 +450,13 @@
 			// documentationToolStripMenuItem
 			// 
 			this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
-			this.documentationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.documentationToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
 			this.documentationToolStripMenuItem.Text = "Documentation";
 			// 
 			// githubToolStripMenuItem
 			// 
 			this.githubToolStripMenuItem.Name = "githubToolStripMenuItem";
-			this.githubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.githubToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
 			this.githubToolStripMenuItem.Text = "Github";
 			this.githubToolStripMenuItem.Click += new System.EventHandler(this.githubToolStripMenuItem_Click);
 			// 
@@ -456,6 +468,12 @@
 			this.button12.TabIndex = 27;
 			this.button12.Text = "button12";
 			this.button12.UseVisualStyleBackColor = true;
+			// 
+			// enEeEsToolStripMenuItem
+			// 
+			this.enEeEsToolStripMenuItem.Name = "enEeEsToolStripMenuItem";
+			this.enEeEsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.enEeEsToolStripMenuItem.Text = "EnEeEs";
 			// 
 			// ancMainWindow
 			// 
@@ -498,6 +516,7 @@
 			this.Name = "ancMainWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ANC";
+			this.Activated += new System.EventHandler(this.ancMainWindow_Activated);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
@@ -548,6 +567,8 @@
 		private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
 		private System.Windows.Forms.Button button12;
+		private System.Windows.Forms.ToolStripMenuItem blackoutToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem enEeEsToolStripMenuItem;
 	}
 }
 
