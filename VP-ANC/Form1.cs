@@ -17,18 +17,18 @@ namespace VP_ANC
 	{
 		AppTheme theme;
 		Dictionary<string, ToolStripMenuItem> themes;
-		bool isStarting;
+		EventHandler startupEvent;
 
 		public ancMainWindow()
 		{
 			InitializeComponent();
-			isStarting = true;
 			themes = new Dictionary<string, ToolStripMenuItem>();
 			foreach (ToolStripMenuItem item in themeToolStripMenuItem.DropDownItems)
 			{
 				themes[item.Text] = item;
 			}
-			Activated += new EventHandler(ancMainWindow_Activated);
+			startupEvent = new EventHandler(ancMainWindow_Activated);
+			Activated += startupEvent;
 		}
 
 		private void stayOnTopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,9 +58,8 @@ namespace VP_ANC
 
 		private void ancMainWindow_Activated(object sender, EventArgs e)
 		{
-			if (!isStarting) return;
-			isStarting = false;
 			theme = new AppTheme(lightToolStripMenuItem);
+			Activated -= startupEvent;
 		}
 	}
 }

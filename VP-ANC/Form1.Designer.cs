@@ -48,7 +48,6 @@
 			this.btnModulo = new System.Windows.Forms.Button();
 			this.btnFactorial = new System.Windows.Forms.Button();
 			this.btnRoot = new System.Windows.Forms.Button();
-			this.numberBox = new System.Windows.Forms.RichTextBox();
 			this.button10 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.btnEquals = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@
 			this.darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.matrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.blackoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.enEeEsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.conversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +71,7 @@
 			this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.button12 = new System.Windows.Forms.Button();
-			this.enEeEsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.numberBox = new System.Windows.Forms.TextBox();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -265,25 +265,6 @@
 			this.btnRoot.Text = "nrt(x)";
 			this.btnRoot.UseVisualStyleBackColor = true;
 			// 
-			// numberBox
-			// 
-			this.numberBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.numberBox.BackColor = System.Drawing.Color.GhostWhite;
-			this.numberBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.numberBox.DetectUrls = false;
-			this.numberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.numberBox.ForeColor = System.Drawing.Color.Black;
-			this.numberBox.Location = new System.Drawing.Point(12, 27);
-			this.numberBox.Multiline = false;
-			this.numberBox.Name = "numberBox";
-			this.numberBox.ReadOnly = true;
-			this.numberBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.numberBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-			this.numberBox.Size = new System.Drawing.Size(516, 132);
-			this.numberBox.TabIndex = 19;
-			this.numberBox.TabStop = false;
-			this.numberBox.Text = "0";
-			// 
 			// button10
 			// 
 			this.button10.Location = new System.Drawing.Point(12, 165);
@@ -373,26 +354,32 @@
 			// lightToolStripMenuItem
 			// 
 			this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-			this.lightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.lightToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
 			this.lightToolStripMenuItem.Text = "Light";
 			// 
 			// darkToolStripMenuItem
 			// 
 			this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-			this.darkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.darkToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
 			this.darkToolStripMenuItem.Text = "Dark";
 			// 
 			// matrixToolStripMenuItem
 			// 
 			this.matrixToolStripMenuItem.Name = "matrixToolStripMenuItem";
-			this.matrixToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.matrixToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
 			this.matrixToolStripMenuItem.Text = "Matrix";
 			// 
 			// blackoutToolStripMenuItem
 			// 
 			this.blackoutToolStripMenuItem.Name = "blackoutToolStripMenuItem";
-			this.blackoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.blackoutToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
 			this.blackoutToolStripMenuItem.Text = "Blackout";
+			// 
+			// enEeEsToolStripMenuItem
+			// 
+			this.enEeEsToolStripMenuItem.Name = "enEeEsToolStripMenuItem";
+			this.enEeEsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+			this.enEeEsToolStripMenuItem.Text = "EnEeEs";
 			// 
 			// toolsToolStripMenuItem
 			// 
@@ -469,11 +456,16 @@
 			this.button12.Text = "button12";
 			this.button12.UseVisualStyleBackColor = true;
 			// 
-			// enEeEsToolStripMenuItem
+			// numberBox
 			// 
-			this.enEeEsToolStripMenuItem.Name = "enEeEsToolStripMenuItem";
-			this.enEeEsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.enEeEsToolStripMenuItem.Text = "EnEeEs";
+			this.numberBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.numberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.numberBox.Location = new System.Drawing.Point(12, 46);
+			this.numberBox.Name = "numberBox";
+			this.numberBox.Size = new System.Drawing.Size(516, 80);
+			this.numberBox.TabIndex = 28;
+			this.numberBox.Text = "0";
+			this.numberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// ancMainWindow
 			// 
@@ -481,6 +473,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightGray;
 			this.ClientSize = new System.Drawing.Size(540, 517);
+			this.Controls.Add(this.numberBox);
 			this.Controls.Add(this.button12);
 			this.Controls.Add(this.btnSin);
 			this.Controls.Add(this.btnCos);
@@ -488,7 +481,6 @@
 			this.Controls.Add(this.btnEquals);
 			this.Controls.Add(this.button11);
 			this.Controls.Add(this.button10);
-			this.Controls.Add(this.numberBox);
 			this.Controls.Add(this.btnRoot);
 			this.Controls.Add(this.btnFactorial);
 			this.Controls.Add(this.btnModulo);
@@ -545,7 +537,6 @@
 		private System.Windows.Forms.Button btnModulo;
 		private System.Windows.Forms.Button btnFactorial;
 		private System.Windows.Forms.Button btnRoot;
-		private System.Windows.Forms.RichTextBox numberBox;
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.Button button11;
 		private System.Windows.Forms.Button btnEquals;
@@ -569,6 +560,7 @@
 		private System.Windows.Forms.Button button12;
 		private System.Windows.Forms.ToolStripMenuItem blackoutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem enEeEsToolStripMenuItem;
+		private System.Windows.Forms.TextBox numberBox;
 	}
 }
 

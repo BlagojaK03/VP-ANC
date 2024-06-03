@@ -10,41 +10,11 @@ using System.Windows.Forms;
 namespace VP_ANC
 {
 
-	internal static class Calculate
+	internal static class Calculator
 	{
-		public static void Addition()
+		public static void Calculate()
 		{
 			
-		}
-
-		//TODO: Add logic to methods
-		public static void Subtraction()
-		{
-			
-		}
-		public static void Multiplication()
-		{
-
-		}
-		public static void Divide()
-		{
-
-		}
-		public static void Modulo()
-		{
-
-		}
-		public static void Factorial()
-		{
-			
-		}
-		public static void Power()
-		{
-
-		}
-		public static void Root()
-		{
-
 		}
 	}
 
@@ -81,9 +51,9 @@ namespace VP_ANC
 					button.FlatStyle = FlatStyle.Flat;
 				}
 				// Change appearance of numberBox
-				else if (item is RichTextBox)
+				else if (item is TextBox)
 				{
-					RichTextBox textbox = item as RichTextBox;
+					TextBox textbox = item as TextBox;
 					textbox.BackColor = NumBoxBackground;
 					textbox.ForeColor = NumBoxText;
 				}
