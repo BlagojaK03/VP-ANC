@@ -65,6 +65,7 @@
 			this.conversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.massToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stayOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -254,6 +255,7 @@
 			this.btnFactorial.TabIndex = 17;
 			this.btnFactorial.Text = "!";
 			this.btnFactorial.UseVisualStyleBackColor = true;
+			this.btnFactorial.Click += new System.EventHandler(this.btnFactorial_Click);
 			// 
 			// btnRoot
 			// 
@@ -292,6 +294,7 @@
 			this.btnEquals.TabIndex = 22;
 			this.btnEquals.Text = "=";
 			this.btnEquals.UseVisualStyleBackColor = true;
+			this.btnEquals.Click += new System.EventHandler(this.btnEquals_Click);
 			// 
 			// btnTan
 			// 
@@ -393,7 +396,8 @@
 			// 
 			this.conversionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.distanceToolStripMenuItem,
-            this.temperatureToolStripMenuItem});
+            this.temperatureToolStripMenuItem,
+            this.massToolStripMenuItem});
 			this.conversionToolStripMenuItem.Name = "conversionToolStripMenuItem";
 			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.conversionToolStripMenuItem.Text = "Conversion";
@@ -409,6 +413,12 @@
 			this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
 			this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.temperatureToolStripMenuItem.Text = "Temperature";
+			// 
+			// massToolStripMenuItem
+			// 
+			this.massToolStripMenuItem.Name = "massToolStripMenuItem";
+			this.massToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.massToolStripMenuItem.Text = "Mass";
 			// 
 			// propertiesToolStripMenuItem
 			// 
@@ -561,6 +571,7 @@
 		private System.Windows.Forms.ToolStripMenuItem blackoutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem enEeEsToolStripMenuItem;
 		private System.Windows.Forms.TextBox numberBox;
+		private System.Windows.Forms.ToolStripMenuItem massToolStripMenuItem;
 	}
 }
 

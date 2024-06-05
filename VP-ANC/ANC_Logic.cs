@@ -12,9 +12,63 @@ namespace VP_ANC
 
 	internal static class Calculator
 	{
-		public static void Calculate()
+		public static ulong Factorial(ulong number)
 		{
-			
+			if (number <= 2) {
+				return number;
+			}
+			ulong result = 1;
+			for (ulong i = number - 1; i >= 2; i++)
+			{
+				result *= i;
+			}
+
+			return result;
+		}
+
+		public static double Calculate(double X, string operation, double Y = 0)
+		{
+			double result = 0;
+			switch (operation)
+			{
+				case "+":
+					result = X + Y;
+					break;
+				case "-":
+					result = X - Y;
+					break;
+				case "*":
+					result = X * Y;
+					break;
+				case "/":
+					result = X / Y;
+					break;
+				case "%":
+					result = X % Y;
+					break;
+				case "^":
+					result = Math.Pow(X, Y);
+					break;
+				case "root":
+					result = Math.Pow(X, 1 / Y);
+					break;
+				case "sin":
+					result = Math.Sin(X);
+					break;
+				case "cos":
+					result = Math.Cos(X);
+					break;
+				case "tan":
+					result = Math.Tan(X);
+					break;
+				case "cot":
+					// TODO: Add Cot(X)
+					break;
+				default:
+					throw new ArgumentException();
+			}
+
+			return result;
 		}
 	}
 
@@ -34,7 +88,7 @@ namespace VP_ANC
 			Color ButtonText,
 			Color NumBoxBackground,
 			Color NumBoxText,
-			Color ToolStripText
+			Color MenuStripText
 		)
 		{
 			Form.ActiveForm.BackColor = Background;
@@ -61,7 +115,7 @@ namespace VP_ANC
 				else if (item is MenuStrip)
 				{
 					MenuStrip menu = item as MenuStrip;
-					menu.ForeColor = ToolStripText;
+					menu.ForeColor = MenuStripText;
 				}
 			}
 
@@ -78,13 +132,14 @@ namespace VP_ANC
 			Current = tsmi;
 			Current.Checked = true;
 
+			// Create a theme using the following variables
 			Color BG, 
 				buttonBG, 
 				buttonBorder,
 				buttonText, 
 				numBoxBG,
 				numboxText, 
-				toolStripText;
+				menuStripText;
 			switch (Current.Text)
 			{
 				case "Light":
@@ -92,14 +147,14 @@ namespace VP_ANC
 					numBoxBG = Color.GhostWhite;
 					buttonBorder = Color.Silver;
 					buttonBG = Color.WhiteSmoke;
-					buttonText = numboxText = toolStripText = Color.Black;
+					buttonText = numboxText = menuStripText = Color.Black;
 					break;
 				case "Dark":
 					BG = Color.Black;
 					numBoxBG = Color.Black;
 					buttonBorder = Color.Silver;
 					buttonBG = Color.DimGray;
-					buttonText = numboxText = toolStripText = Color.White;
+					buttonText = numboxText = menuStripText = Color.White;
 					break;
 				case "Matrix":
 					BG = Color.Black;
@@ -108,7 +163,7 @@ namespace VP_ANC
 					buttonBG = Color.Black;
 					buttonText = Color.Lime;
 					numboxText = Color.Lime;
-					toolStripText = Color.LawnGreen;
+					menuStripText = Color.LawnGreen;
 					break;
 				case "Blackout":
 					BG = Color.Black;
@@ -117,7 +172,7 @@ namespace VP_ANC
 					buttonBorder = Color.DimGray;
 					buttonBG = Color.Black;
 					buttonText = Color.DimGray;
-					toolStripText = Color.DimGray;
+					menuStripText = Color.DimGray;
 					break;
 				case "EnEeEs":
 					BG = Color.DimGray;
@@ -126,13 +181,13 @@ namespace VP_ANC
 					buttonBG = Color.LightGray;
 					buttonBorder = Color.Black;
 					buttonText = Color.Red;
-					toolStripText = Color.DarkRed;
+					menuStripText = Color.DarkRed;
 					break;
 				default:
 					goto case "Light";
 			}
 
-			ApplyChanges(BG, buttonBG, buttonBorder, buttonText, numBoxBG, numboxText, toolStripText);
+			ApplyChanges(BG, buttonBG, buttonBorder, buttonText, numBoxBG, numboxText, menuStripText);
 		}
 	}
 }

@@ -18,6 +18,9 @@ namespace VP_ANC
 		AppTheme theme;
 		Dictionary<string, ToolStripMenuItem> themes;
 		EventHandler startupEvent;
+		double X, Y;
+		string operation;
+		bool secondOperator;
 
 		public ancMainWindow()
 		{
@@ -29,6 +32,7 @@ namespace VP_ANC
 			}
 			startupEvent = new EventHandler(ancMainWindow_Activated);
 			Activated += startupEvent;
+			secondOperator = false;
 		}
 
 		private void stayOnTopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,13 +40,13 @@ namespace VP_ANC
 			if (!stayOnTopToolStripMenuItem.Checked)
 			{
 				stayOnTopToolStripMenuItem.Checked = true;
-				TopMost = true;
 			}
 			else
 			{
 				stayOnTopToolStripMenuItem.Checked = false;
-				TopMost = false;
 			}
+
+			TopMost = stayOnTopToolStripMenuItem.Checked;
 		}
 
 		private void githubToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,6 +58,32 @@ namespace VP_ANC
 		{
 			string selectedItem = e.ClickedItem.Text;
 			theme.ChangeTheme(themes[selectedItem]);
+		}
+
+		private void btnEquals_Click(object sender, EventArgs e)
+		{
+			if (operation == "!")
+			{
+				numberBox.Text = Calculator.Factorial((ulong)X).ToString();
+			}
+			else
+			{
+				numberBox.Text = Calculator.Calculate(X, operation, Y).ToString();
+			}
+		}
+
+
+		//TODO: Which args to use???
+		private void numberButtonClicked(object sender, MouseEventArgs e)
+		{
+			// numberBox.Text = (numberBox.Text == "0")? button.Text : numberBox.Text + button.Text;
+		}
+
+		private void btnFactorial_Click(object sender, EventArgs e)
+		{
+			X = double.Parse(numberBox.Text);
+			operation = "!";
+			numberBox.Text += operation;
 		}
 
 		private void ancMainWindow_Activated(object sender, EventArgs e)
