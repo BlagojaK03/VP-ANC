@@ -18,7 +18,7 @@ namespace VP_ANC
 				return number;
 			}
 			ulong result = 1;
-			for (ulong i = number - 1; i >= 2; i++)
+			for (ulong i = number - 1; i >= 2; i--)
 			{
 				result *= i;
 			}

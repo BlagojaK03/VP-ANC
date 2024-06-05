@@ -68,22 +68,71 @@ namespace VP_ANC
 			}
 			else
 			{
-				numberBox.Text = Calculator.Calculate(X, operation, Y).ToString();
+				try
+				{ numberBox.Text = Calculator.Calculate(X, operation, Y).ToString(); }
+
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message, "ANC - Error!");
+					return;
+				}
 			}
 		}
 
-
-		//TODO: Which args to use???
-		private void numberButtonClicked(object sender, MouseEventArgs e)
+		private void NumberButtonClicked(object sender, EventArgs e)
 		{
-			// numberBox.Text = (numberBox.Text == "0")? button.Text : numberBox.Text + button.Text;
+			// Make sure that this method is used by buttons
+			if (sender is Button)
+			{
+				Button button = sender as Button;
+				numberBox.Text = (numberBox.Text == "0") ? button.Text : numberBox.Text + button.Text;
+			}
 		}
 
-		private void btnFactorial_Click(object sender, EventArgs e)
+		private void BinaryOperatorButtonClicked(object sender, EventArgs e)
 		{
-			X = double.Parse(numberBox.Text);
-			operation = "!";
-			numberBox.Text += operation;
+			if (sender is Button)
+			{
+				Button button = sender as Button;
+				string binaryOperator;
+				switch (button.Text)
+				{
+					case "x^n":
+						binaryOperator = " ^ ";
+						break;
+					case "nrt(x)":
+						binaryOperator = "-root of "; 
+						break;
+					default:
+						binaryOperator = $" {button.Text} ";
+						break;
+				}
+				numberBox.Text += binaryOperator;
+			}
+		}
+
+		private void UnaryOperatorButtonClicked(object sender, EventArgs e)
+		{
+			if (sender is Button)
+			{
+				Button button = sender as Button;
+				switch (button.Text)
+				{
+					case "!":
+						numberBox.Text += "!";
+						break;
+					default:
+						numberBox.Text = $"{button.Text}({numberBox.Text})";
+						break;
+				}
+			}
+		}
+
+		private void buttonDecimal_Click(object sender, EventArgs e)
+		{
+			if (numberBox.Text.Contains("."))
+				return;
+			numberBox.Text += ".";
 		}
 
 		private void ancMainWindow_Activated(object sender, EventArgs e)
