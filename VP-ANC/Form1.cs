@@ -32,7 +32,7 @@ namespace VP_ANC
 			}
 			startupEvent = new EventHandler(ancMainWindow_Activated);
 			Activated += startupEvent;
-			secondOperator = false;
+			extraOperationsMenu1.BringToFront();
 		}
 
 		private void stayOnTopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,7 +69,9 @@ namespace VP_ANC
 			else
 			{
 				try
-				{ numberBox.Text = Calculator.Calculate(X, operation, Y).ToString(); }
+				{ 
+					numberBox.Text = Calculator.Calculate(X, operation, Y).ToString(); 
+				}
 
 				catch (Exception ex)
 				{
@@ -116,13 +118,20 @@ namespace VP_ANC
 			if (sender is Button)
 			{
 				Button button = sender as Button;
+				X = double.Parse(numberBox.Text);
 				switch (button.Text)
 				{
 					case "!":
 						numberBox.Text += "!";
+						operation = "!";
+						break;
+					case "sin":
+					case "cos":
+					case "tan":
+						numberBox.Text = $"{button.Text}({numberBox.Text})";
+						operation = button.Text;
 						break;
 					default:
-						numberBox.Text = $"{button.Text}({numberBox.Text})";
 						break;
 				}
 			}
@@ -133,6 +142,37 @@ namespace VP_ANC
 			if (numberBox.Text.Contains("."))
 				return;
 			numberBox.Text += ".";
+		}
+
+		private void clearEntryButton_Click(object sender, EventArgs e)
+		{
+			numberBox.Text = "0";
+		}
+
+		private void clearButton_Click(object sender, EventArgs e)
+		{
+			X = Y = 0;
+			operation = null;
+			numberBox.Text = "0";
+		}
+
+		private void extraOperationsButton_Click(object sender, EventArgs e)
+		{
+			if (extraOperationsMenu1.Visible)
+			{
+				extraOperationsMenu1.Hide();
+				extraOperationsButton.Text = "2nd";
+			}
+			else
+			{
+				extraOperationsMenu1.Show();
+				extraOperationsButton.Text = "1st";
+			}
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			new AboutBox1().ShowDialog();
 		}
 
 		private void ancMainWindow_Activated(object sender, EventArgs e)

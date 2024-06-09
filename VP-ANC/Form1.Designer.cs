@@ -48,8 +48,8 @@
 			this.btnModulo = new System.Windows.Forms.Button();
 			this.btnFactorial = new System.Windows.Forms.Button();
 			this.btnRoot = new System.Windows.Forms.Button();
-			this.button10 = new System.Windows.Forms.Button();
-			this.button11 = new System.Windows.Forms.Button();
+			this.clearButton = new System.Windows.Forms.Button();
+			this.clearEntryButton = new System.Windows.Forms.Button();
 			this.btnEquals = new System.Windows.Forms.Button();
 			this.btnTan = new System.Windows.Forms.Button();
 			this.btnCos = new System.Windows.Forms.Button();
@@ -71,8 +71,11 @@
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.button12 = new System.Windows.Forms.Button();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.extraOperationsButton = new System.Windows.Forms.Button();
 			this.numberBox = new System.Windows.Forms.TextBox();
+			this.btnCot = new System.Windows.Forms.Button();
+			this.extraOperationsMenu1 = new VP_ANC.extraOperationsMenu();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -285,30 +288,32 @@
 			this.btnRoot.UseVisualStyleBackColor = true;
 			this.btnRoot.Click += new System.EventHandler(this.BinaryOperatorButtonClicked);
 			// 
-			// button10
+			// clearButton
 			// 
-			this.button10.Location = new System.Drawing.Point(12, 165);
-			this.button10.Name = "button10";
-			this.button10.Size = new System.Drawing.Size(75, 23);
-			this.button10.TabIndex = 20;
-			this.button10.Text = "button10";
-			this.button10.UseVisualStyleBackColor = true;
+			this.clearButton.Location = new System.Drawing.Point(12, 165);
+			this.clearButton.Name = "clearButton";
+			this.clearButton.Size = new System.Drawing.Size(75, 23);
+			this.clearButton.TabIndex = 20;
+			this.clearButton.Text = "C";
+			this.clearButton.UseVisualStyleBackColor = true;
+			this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
 			// 
-			// button11
+			// clearEntryButton
 			// 
-			this.button11.Location = new System.Drawing.Point(12, 194);
-			this.button11.Name = "button11";
-			this.button11.Size = new System.Drawing.Size(75, 23);
-			this.button11.TabIndex = 21;
-			this.button11.Text = "button11";
-			this.button11.UseVisualStyleBackColor = true;
+			this.clearEntryButton.Location = new System.Drawing.Point(12, 194);
+			this.clearEntryButton.Name = "clearEntryButton";
+			this.clearEntryButton.Size = new System.Drawing.Size(75, 23);
+			this.clearEntryButton.TabIndex = 21;
+			this.clearEntryButton.Text = "CE";
+			this.clearEntryButton.UseVisualStyleBackColor = true;
+			this.clearEntryButton.Click += new System.EventHandler(this.clearEntryButton_Click);
 			// 
 			// btnEquals
 			// 
 			this.btnEquals.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnEquals.Location = new System.Drawing.Point(324, 441);
+			this.btnEquals.Location = new System.Drawing.Point(222, 441);
 			this.btnEquals.Name = "btnEquals";
-			this.btnEquals.Size = new System.Drawing.Size(64, 64);
+			this.btnEquals.Size = new System.Drawing.Size(96, 64);
 			this.btnEquals.TabIndex = 22;
 			this.btnEquals.Text = "=";
 			this.btnEquals.UseVisualStyleBackColor = true;
@@ -452,7 +457,7 @@
 			// stayOnTopToolStripMenuItem
 			// 
 			this.stayOnTopToolStripMenuItem.Name = "stayOnTopToolStripMenuItem";
-			this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.stayOnTopToolStripMenuItem.Text = "Stay on top";
 			this.stayOnTopToolStripMenuItem.Click += new System.EventHandler(this.stayOnTopToolStripMenuItem_Click);
 			// 
@@ -460,7 +465,8 @@
 			// 
 			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.documentationToolStripMenuItem,
-            this.githubToolStripMenuItem});
+            this.githubToolStripMenuItem,
+            this.aboutToolStripMenuItem});
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
 			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.helpToolStripMenuItem.Text = "Help";
@@ -468,24 +474,32 @@
 			// documentationToolStripMenuItem
 			// 
 			this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
-			this.documentationToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.documentationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.documentationToolStripMenuItem.Text = "Documentation";
 			// 
 			// githubToolStripMenuItem
 			// 
 			this.githubToolStripMenuItem.Name = "githubToolStripMenuItem";
-			this.githubToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.githubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.githubToolStripMenuItem.Text = "Github";
 			this.githubToolStripMenuItem.Click += new System.EventHandler(this.githubToolStripMenuItem_Click);
 			// 
-			// button12
+			// aboutToolStripMenuItem
 			// 
-			this.button12.Location = new System.Drawing.Point(222, 232);
-			this.button12.Name = "button12";
-			this.button12.Size = new System.Drawing.Size(96, 23);
-			this.button12.TabIndex = 27;
-			this.button12.Text = "button12";
-			this.button12.UseVisualStyleBackColor = true;
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			// 
+			// extraOperationsButton
+			// 
+			this.extraOperationsButton.Location = new System.Drawing.Point(222, 232);
+			this.extraOperationsButton.Name = "extraOperationsButton";
+			this.extraOperationsButton.Size = new System.Drawing.Size(96, 23);
+			this.extraOperationsButton.TabIndex = 27;
+			this.extraOperationsButton.Text = "2nd";
+			this.extraOperationsButton.UseVisualStyleBackColor = true;
+			this.extraOperationsButton.Click += new System.EventHandler(this.extraOperationsButton_Click);
 			// 
 			// numberBox
 			// 
@@ -498,20 +512,39 @@
 			this.numberBox.Text = "0";
 			this.numberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
+			// btnCot
+			// 
+			this.btnCot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnCot.Location = new System.Drawing.Point(324, 441);
+			this.btnCot.Name = "btnCot";
+			this.btnCot.Size = new System.Drawing.Size(64, 64);
+			this.btnCot.TabIndex = 29;
+			this.btnCot.Text = "cot";
+			this.btnCot.UseVisualStyleBackColor = true;
+			// 
+			// extraOperationsMenu1
+			// 
+			this.extraOperationsMenu1.Location = new System.Drawing.Point(324, 231);
+			this.extraOperationsMenu1.Name = "extraOperationsMenu1";
+			this.extraOperationsMenu1.Size = new System.Drawing.Size(204, 274);
+			this.extraOperationsMenu1.TabIndex = 30;
+			this.extraOperationsMenu1.Visible = false;
+			// 
 			// ancMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightGray;
 			this.ClientSize = new System.Drawing.Size(540, 517);
+			this.Controls.Add(this.btnCot);
 			this.Controls.Add(this.numberBox);
-			this.Controls.Add(this.button12);
+			this.Controls.Add(this.extraOperationsButton);
 			this.Controls.Add(this.btnSin);
 			this.Controls.Add(this.btnCos);
 			this.Controls.Add(this.btnTan);
 			this.Controls.Add(this.btnEquals);
-			this.Controls.Add(this.button11);
-			this.Controls.Add(this.button10);
+			this.Controls.Add(this.clearEntryButton);
+			this.Controls.Add(this.clearButton);
 			this.Controls.Add(this.btnRoot);
 			this.Controls.Add(this.btnFactorial);
 			this.Controls.Add(this.btnModulo);
@@ -532,6 +565,7 @@
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.button0);
 			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.extraOperationsMenu1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
@@ -568,8 +602,8 @@
 		private System.Windows.Forms.Button btnModulo;
 		private System.Windows.Forms.Button btnFactorial;
 		private System.Windows.Forms.Button btnRoot;
-		private System.Windows.Forms.Button button10;
-		private System.Windows.Forms.Button button11;
+		private System.Windows.Forms.Button clearButton;
+		private System.Windows.Forms.Button clearEntryButton;
 		private System.Windows.Forms.Button btnEquals;
 		private System.Windows.Forms.Button btnTan;
 		private System.Windows.Forms.Button btnCos;
@@ -588,11 +622,14 @@
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
-		private System.Windows.Forms.Button button12;
+		private System.Windows.Forms.Button extraOperationsButton;
 		private System.Windows.Forms.ToolStripMenuItem blackoutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem enEeEsToolStripMenuItem;
 		private System.Windows.Forms.TextBox numberBox;
 		private System.Windows.Forms.ToolStripMenuItem massToolStripMenuItem;
+		private System.Windows.Forms.Button btnCot;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private extraOperationsMenu extraOperationsMenu1;
 	}
 }
 

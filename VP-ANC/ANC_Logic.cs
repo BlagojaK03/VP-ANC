@@ -18,7 +18,7 @@ namespace VP_ANC
 				return number;
 			}
 			ulong result = 1;
-			for (ulong i = number - 1; i >= 2; i--)
+			for (ulong i = number; i >= 2; i--)
 			{
 				result *= i;
 			}
@@ -117,6 +117,20 @@ namespace VP_ANC
 					MenuStrip menu = item as MenuStrip;
 					menu.ForeColor = MenuStripText;
 				}
+				// Change appreance of extraOperationsMenu
+				else if (item is extraOperationsMenu)
+				{
+					extraOperationsMenu extra = item as extraOperationsMenu;
+					extra.BackColor = Background;
+                    foreach (Button button in extra.Controls)
+                    {
+						button.BackColor = ButtonBackground;
+						button.ForeColor = ButtonText;
+						button.FlatAppearance.BorderColor = ButtonBorder;
+						button.FlatAppearance.BorderSize = 2;
+						button.FlatStyle = FlatStyle.Flat;
+					}
+                }
 			}
 
 		}
