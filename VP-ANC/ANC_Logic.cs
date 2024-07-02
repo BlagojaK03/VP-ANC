@@ -9,10 +9,11 @@ using System.Windows.Forms;
 
 namespace VP_ANC
 {
+	// This class handles the mathematics
 
 	internal static class Calculator
 	{
-		public static ulong Factorial(ulong number)
+		private static ulong Factorial(ulong number)
 		{
 			if (number <= 2) {
 				return number;
@@ -37,20 +38,20 @@ namespace VP_ANC
 				case "-":
 					result = X - Y;
 					break;
-				case "*":
+				case "x":
 					result = X * Y;
 					break;
 				case "/":
 					result = X / Y;
 					break;
-				case "%":
+				case "mod":
 					result = X % Y;
 					break;
 				case "^":
 					result = Math.Pow(X, Y);
 					break;
-				case "root":
-					result = Math.Pow(X, 1 / Y);
+				case "-root of":
+					result = Math.Pow(Y, 1 / X);
 					break;
 				case "sin":
 					result = Math.Sin(X);
@@ -62,16 +63,58 @@ namespace VP_ANC
 					result = Math.Tan(X);
 					break;
 				case "cot":
-					// TODO: Add Cot(X)
+					result = (Math.Cos(X) / Math.Sin(X));
+					break;
+				case "!":
+					result = Factorial((ulong)X);
+					break;
+				case "arcsin":
+					result = Math.Asin(X);
+					break;
+				case "arccos":
+					result = Math.Acos(X);
+					break;
+				case "arctan":
+					result = Math.Atan(X);
+					break;
+				case "arccot":
+					//TODO
+					break;
+				case "sec":
+					//TODO
+					break;
+				case "csc":
+					//TODO
+					break;
+				case "arcsec":
+					//TODO
+					break;
+				case "1/x":
+					result = 1 / X;
+					break;
+				case "log":
+					// replace with log(x, y)
+					result = Math.Log10(X);
+					break;
+				case "ln":
+					result = Math.Log(X);
+					break;
+				case "nPr":
+					//TODO
+					break;
+				case "nCr":
+					//TODO
 					break;
 				default:
-					throw new ArgumentException();
+					MessageBox.Show("Operation not implemented!", "ANC - Error");
+					break;
 			}
 
 			return result;
 		}
 	}
 
+	// Class for the app's appearance
 	internal class AppTheme
 	{
 		ToolStripMenuItem Current;
@@ -131,6 +174,12 @@ namespace VP_ANC
 						button.FlatStyle = FlatStyle.Flat;
 					}
                 }
+				// Change text color for labels
+				else if (item is Label)
+				{
+					Label label = item as Label;
+					label.ForeColor = MenuStripText;
+				}
 			}
 
 		}
