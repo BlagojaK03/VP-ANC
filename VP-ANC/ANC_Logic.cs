@@ -50,7 +50,7 @@ namespace VP_ANC
 				case "^":
 					result = Math.Pow(X, Y);
 					break;
-				case "-root of":
+				case "root":
 					result = Math.Pow(Y, 1 / X);
 					break;
 				case "sin":
@@ -78,32 +78,31 @@ namespace VP_ANC
 					result = Math.Atan(X);
 					break;
 				case "arccot":
-					//TODO
+					result = Math.Atan(1 / X);
 					break;
 				case "sec":
-					//TODO
+					result = 1 / Math.Cos(X);
 					break;
 				case "csc":
-					//TODO
+					result = 1 / Math.Sin(X);
 					break;
 				case "arcsec":
-					//TODO
+					result = Math.Acos(1 / X);
 					break;
-				case "1/x":
-					result = 1 / X;
+				case "arccsc":
+					result = Math.Asin(1 / X);
 					break;
 				case "log":
-					// replace with log(x, y)
-					result = Math.Log10(X);
+					result = Math.Log(X, Y);
 					break;
 				case "ln":
 					result = Math.Log(X);
 					break;
 				case "nPr":
-					//TODO
+					result = Factorial((ulong)X) / Factorial((ulong)(X-Y));
 					break;
 				case "nCr":
-					//TODO
+					result = Factorial((ulong)X) / (Factorial((ulong)Y) * Factorial((ulong)(X - Y)));
 					break;
 				default:
 					MessageBox.Show("Operation not implemented!", "ANC - Error");
@@ -251,6 +250,20 @@ namespace VP_ANC
 			}
 
 			ApplyChanges(BG, buttonBG, buttonBorder, buttonText, numBoxBG, numboxText, menuStripText);
+		}
+	}
+	// Class for the conversion tool
+	internal static class Converter
+	{
+		public static string ConvertNumberFormat(string Converting, double Number, string Converted)
+		{
+			Tuple<string, string> ConversionPair = new Tuple<string, string>(Converting, Converted);
+			switch (ConversionPair)
+			{
+				
+
+			}
+			return null;
 		}
 	}
 }

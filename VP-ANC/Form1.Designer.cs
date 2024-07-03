@@ -80,6 +80,7 @@
 			this.btnE = new System.Windows.Forms.Button();
 			this.btnPi = new System.Windows.Forms.Button();
 			this.currentOperationText = new System.Windows.Forms.Label();
+			this.btnSignFlip = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -211,7 +212,7 @@
 			this.btnPower.Name = "btnPower";
 			this.btnPower.Size = new System.Drawing.Size(64, 64);
 			this.btnPower.TabIndex = 11;
-			this.btnPower.Text = "x^n";
+			this.btnPower.Text = "x^y";
 			this.btnPower.UseVisualStyleBackColor = true;
 			this.btnPower.Click += new System.EventHandler(this.BinaryOperatorButtonClicked);
 			// 
@@ -294,7 +295,7 @@
 			// 
 			// clearButton
 			// 
-			this.clearButton.Location = new System.Drawing.Point(394, 194);
+			this.clearButton.Location = new System.Drawing.Point(394, 165);
 			this.clearButton.Name = "clearButton";
 			this.clearButton.Size = new System.Drawing.Size(64, 23);
 			this.clearButton.TabIndex = 20;
@@ -430,32 +431,36 @@
             this.massToolStripMenuItem,
             this.numberFormatToolStripMenuItem});
 			this.conversionToolStripMenuItem.Name = "conversionToolStripMenuItem";
-			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.conversionToolStripMenuItem.Text = "Conversion";
 			// 
 			// distanceToolStripMenuItem
 			// 
 			this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
-			this.distanceToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+			this.distanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.distanceToolStripMenuItem.Text = "Distance";
+			this.distanceToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// temperatureToolStripMenuItem
 			// 
 			this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-			this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+			this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.temperatureToolStripMenuItem.Text = "Temperature";
+			this.temperatureToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// massToolStripMenuItem
 			// 
 			this.massToolStripMenuItem.Name = "massToolStripMenuItem";
-			this.massToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+			this.massToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.massToolStripMenuItem.Text = "Mass";
+			this.massToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// numberFormatToolStripMenuItem
 			// 
 			this.numberFormatToolStripMenuItem.Name = "numberFormatToolStripMenuItem";
-			this.numberFormatToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+			this.numberFormatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.numberFormatToolStripMenuItem.Text = "Number Format";
+			this.numberFormatToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// propertiesToolStripMenuItem
 			// 
@@ -497,9 +502,9 @@
 			// 
 			// extraOperationsButton
 			// 
-			this.extraOperationsButton.Location = new System.Drawing.Point(222, 232);
+			this.extraOperationsButton.Location = new System.Drawing.Point(324, 194);
 			this.extraOperationsButton.Name = "extraOperationsButton";
-			this.extraOperationsButton.Size = new System.Drawing.Size(96, 23);
+			this.extraOperationsButton.Size = new System.Drawing.Size(64, 23);
 			this.extraOperationsButton.TabIndex = 27;
 			this.extraOperationsButton.Text = "2nd";
 			this.extraOperationsButton.UseVisualStyleBackColor = true;
@@ -579,6 +584,16 @@
 			this.currentOperationText.Text = "text for binary operations";
 			this.currentOperationText.Visible = false;
 			// 
+			// btnSignFlip
+			// 
+			this.btnSignFlip.Location = new System.Drawing.Point(222, 231);
+			this.btnSignFlip.Name = "btnSignFlip";
+			this.btnSignFlip.Size = new System.Drawing.Size(96, 23);
+			this.btnSignFlip.TabIndex = 35;
+			this.btnSignFlip.Text = "+/-";
+			this.btnSignFlip.UseVisualStyleBackColor = true;
+			this.btnSignFlip.Click += new System.EventHandler(this.btnSignFlip_Click);
+			// 
 			// ancMainWindow
 			// 
 			this.AcceptButton = this.btnEquals;
@@ -586,6 +601,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightGray;
 			this.ClientSize = new System.Drawing.Size(540, 517);
+			this.Controls.Add(this.btnSignFlip);
 			this.Controls.Add(this.currentOperationText);
 			this.Controls.Add(this.btnPi);
 			this.Controls.Add(this.btnE);
@@ -688,6 +704,7 @@
 		private System.Windows.Forms.Button btnE;
 		private System.Windows.Forms.Button btnPi;
 		private System.Windows.Forms.Label currentOperationText;
+		private System.Windows.Forms.Button btnSignFlip;
 	}
 }
 

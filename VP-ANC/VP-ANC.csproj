@@ -53,6 +53,12 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="ANC_Logic.cs" />
+    <Compile Include="ConversionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConversionMenu.Designer.cs">
+      <DependentUpon>ConversionMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="extraOperationsMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConversionMenu.resx">
+      <DependentUpon>ConversionMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="extraOperationsMenu.resx">
       <DependentUpon>extraOperationsMenu.cs</DependentUpon>

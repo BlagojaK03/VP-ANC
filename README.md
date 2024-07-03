@@ -1,7 +1,7 @@
 # VP-ANC
 
-**ANC (A Normal Calculator)** is a calculator whose goal is to be a scientific calculator with features that the default Windows calculator may not offer.
+**ANC (A Normal Calculator)** е научен калкулатор чија цел е да нуди функции што вградениот калкулатор во Windows можеби не би нудил.
 
-This is a Windows-only application, as it is made using Windows Forms. 
+Оваа апликација е само за Windows платформата поради тоа што е Windows Form аппликација.
 
-This program was made as part of an assignment for the subject Visual Programming.
+Оваа апликација е проектна задача за предметот Визуелно Програмирање. Документација за истата доаѓа наскоро.

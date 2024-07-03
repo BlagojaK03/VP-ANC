@@ -21,8 +21,9 @@ namespace VP_ANC
 		Dictionary<string, ToolStripMenuItem> themes;
 		EventHandler startupEvent;
 		double X, Y;
-		string operation;
+		string operation, binaryOperation;
 		bool isSecondOperand;
+		string OperationText;
 
 		public ancMainWindow()
 		{
@@ -69,11 +70,9 @@ namespace VP_ANC
 				MessageBox.Show("Equals button is for binary operations only", "ANC - Warning");
 				return;
 			}
-			string X_String = Regex.Split(currentOperationText.Text, "\\s+")[0];
-			X = Convert.ToDouble(X_String);
 			Y = Convert.ToDouble(numberBox.Text);
-			currentOperationText.Text = $"{X} {operation} {Y} = ";
-			numberBox.Text = Calculator.Calculate(X, operation, Y).ToString();
+			currentOperationText.Text = OperationText + $"{Y} = ";
+			numberBox.Text = Calculator.Calculate(X, binaryOperation ?? operation, Y).ToString();
 		}
 
 		private void NumberButtonClicked(object sender, EventArgs e)
@@ -93,19 +92,19 @@ namespace VP_ANC
 			if (sender is Button)
 			{
 				Button button = sender as Button;
-				//TODO: Round the numbers
 				switch (button.Text)
 				{
 					case "e":
-						numberBox.Text = Math.E.ToString(); break;
+						numberBox.Text = Math.E.ToString("N08"); 
+						break;
 					case "𝝿":
-						numberBox.Text = Math.PI.ToString();
+						numberBox.Text = Math.PI.ToString("N08");
 						break;
 				}
 			}
 		}
 
-		public void BinaryOperatorButtonClicked(object sender, EventArgs e)
+		private void BinaryOperatorButtonClicked(object sender, EventArgs e)
 		{
 			if (isSecondOperand)
 			{
@@ -115,40 +114,64 @@ namespace VP_ANC
 			if (sender is Button)
 			{
 				Button button = sender as Button;
-				string binaryOperator;
+				X = Convert.ToDouble(numberBox.Text);
 				switch (button.Text)
 				{
-					case "x^n":
-						binaryOperator = " ^ ";
+					case "x^y":
+						OperationText = $"{X}^";
+						operation = "^";
 						break;
 					case "nrt(x)":
-						binaryOperator = " -root of "; 
+						OperationText = $"{X}-root of ";
+						operation = "root";
+						break;
+					case "nCr":
+						OperationText = $"Class {X} combination of ";
+						operation = button.Text;
+						break;
+					case "nPr":
+						OperationText = $"Class {X} permutation of ";
+						operation = button.Text;
+						break;
+					case "log":
+						OperationText = $"log({X}), base ";
+						operation = button.Text;
 						break;
 					default:
-						binaryOperator = $" {button.Text} ";
+						OperationText = $"{X} {button.Text} ";
+						operation = button.Text;
 						break;
 				}
-				currentOperationText.Text = numberBox.Text + binaryOperator;
-				operation = binaryOperator.Trim();
+				currentOperationText.Text = OperationText;
 				currentOperationText.Visible = true;
 				numberBox.Text = "0";
 				isSecondOperand = true;
 			}
 		}
 
-		public void UnaryOperatorButtonClicked(object sender, EventArgs e)
+		private void UnaryOperatorButtonClicked(object sender, EventArgs e)
 		{
 			// Unary operations calculate result immediately
 			if (sender is Button)
 			{
 				Button button = sender as Button;
-				X = double.Parse(numberBox.Text);
-				operation = button.Text;
 				if (!isSecondOperand)
 				{
-					//TODO: Change label text for unary operations
+					X = double.Parse(numberBox.Text);
+					operation = button.Text;
+					OperationText = (operation == "!") ? $"{X}! =" : $"{operation}({X})";
+					currentOperationText.Text = OperationText;
+					currentOperationText.Visible = true;
+					numberBox.Text = Calculator.Calculate(X, operation).ToString();
 				} 
-				numberBox.Text = Calculator.Calculate(X, operation).ToString();
+				else
+				{
+					Y = double.Parse(numberBox.Text);
+					binaryOperation = operation;
+					operation = button.Text;
+					numberBox.Text = Calculator.Calculate(Y, operation).ToString();
+				}
+				
 			}
 		}
 
@@ -172,6 +195,7 @@ namespace VP_ANC
 		{
 			X = Y = double.NaN;
 			operation = null;
+			binaryOperation = null;
 			numberBox.Text = "0";
 			currentOperationText.Visible = false;
 			isSecondOperand = false;
@@ -202,6 +226,11 @@ namespace VP_ANC
 			else numberBox.Text = numberBox.Text.Substring(0, numberBox.Text.Length - 1);
 		}
 
+		private void btnSignFlip_Click(object sender, EventArgs e)
+		{
+			numberBox.Text = (Convert.ToDouble(numberBox.Text) * -1).ToString();
+		}
+
 		// This event activates on start-up to apply default (light) theme and events,
 		// then is removed to prevent it from activating after each interaction with the form or its controls
 		private void ancMainWindow_Activated(object sender, EventArgs e)
@@ -210,6 +239,15 @@ namespace VP_ANC
 			extraOperationsMenu1.unaryOperations += UnaryOperatorButtonClicked;
 			extraOperationsMenu1.binaryOperations += BinaryOperatorButtonClicked;
 			Activated -= startupEvent;
+		}
+
+		private void ConversionMenu_Activate(object sender, EventArgs e)
+		{
+			if (sender is ToolStripMenuItem)
+			{
+				string type = (sender as ToolStripMenuItem).Text;
+				new ConversionMenu(type).Show();
+			}
 		}
 	}
 }

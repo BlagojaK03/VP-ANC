@@ -36,7 +36,7 @@
 			this.btnCombination = new System.Windows.Forms.Button();
 			this.btnArcTan = new System.Windows.Forms.Button();
 			this.btnCsc = new System.Windows.Forms.Button();
-			this.btnFraction = new System.Windows.Forms.Button();
+			this.btnArcCsc = new System.Windows.Forms.Button();
 			this.btnArcCot = new System.Windows.Forms.Button();
 			this.btnLog = new System.Windows.Forms.Button();
 			this.btnLn = new System.Windows.Forms.Button();
@@ -130,16 +130,16 @@
 			this.btnCsc.UseVisualStyleBackColor = true;
 			this.btnCsc.Click += new System.EventHandler(this.UnaryButtonClicked);
 			// 
-			// btnFraction
+			// btnArcCsc
 			// 
-			this.btnFraction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnFraction.Location = new System.Drawing.Point(140, 140);
-			this.btnFraction.Name = "btnFraction";
-			this.btnFraction.Size = new System.Drawing.Size(64, 64);
-			this.btnFraction.TabIndex = 8;
-			this.btnFraction.Text = "1/x";
-			this.btnFraction.UseVisualStyleBackColor = true;
-			this.btnFraction.Click += new System.EventHandler(this.UnaryButtonClicked);
+			this.btnArcCsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnArcCsc.Location = new System.Drawing.Point(70, 210);
+			this.btnArcCsc.Name = "btnArcCsc";
+			this.btnArcCsc.Size = new System.Drawing.Size(64, 64);
+			this.btnArcCsc.TabIndex = 8;
+			this.btnArcCsc.Text = "arccsc";
+			this.btnArcCsc.UseVisualStyleBackColor = true;
+			this.btnArcCsc.Click += new System.EventHandler(this.UnaryButtonClicked);
 			// 
 			// btnArcCot
 			// 
@@ -155,13 +155,13 @@
 			// btnLog
 			// 
 			this.btnLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLog.Location = new System.Drawing.Point(70, 210);
+			this.btnLog.Location = new System.Drawing.Point(140, 140);
 			this.btnLog.Name = "btnLog";
 			this.btnLog.Size = new System.Drawing.Size(64, 64);
 			this.btnLog.TabIndex = 10;
 			this.btnLog.Text = "log";
 			this.btnLog.UseVisualStyleBackColor = true;
-			this.btnLog.Click += new System.EventHandler(this.UnaryButtonClicked);
+			this.btnLog.Click += new System.EventHandler(this.BinaryButtonClicked);
 			// 
 			// btnLn
 			// 
@@ -181,7 +181,7 @@
 			this.Controls.Add(this.btnLn);
 			this.Controls.Add(this.btnLog);
 			this.Controls.Add(this.btnArcCot);
-			this.Controls.Add(this.btnFraction);
+			this.Controls.Add(this.btnArcCsc);
 			this.Controls.Add(this.btnCsc);
 			this.Controls.Add(this.btnArcTan);
 			this.Controls.Add(this.btnCombination);
@@ -205,7 +205,7 @@
 		private System.Windows.Forms.Button btnArcSec;
 		private System.Windows.Forms.Button btnCombination;
 		private System.Windows.Forms.Button btnArcTan;
-		private System.Windows.Forms.Button btnFraction;
+		private System.Windows.Forms.Button btnArcCsc;
 		private System.Windows.Forms.Button btnArcCot;
 		private System.Windows.Forms.Button btnLog;
 		private System.Windows.Forms.Button btnLn;
