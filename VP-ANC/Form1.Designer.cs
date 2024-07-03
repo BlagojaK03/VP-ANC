@@ -48,8 +48,8 @@
 			this.btnModulo = new System.Windows.Forms.Button();
 			this.btnFactorial = new System.Windows.Forms.Button();
 			this.btnRoot = new System.Windows.Forms.Button();
-			this.button10 = new System.Windows.Forms.Button();
-			this.button11 = new System.Windows.Forms.Button();
+			this.clearButton = new System.Windows.Forms.Button();
+			this.clearEntryButton = new System.Windows.Forms.Button();
 			this.btnEquals = new System.Windows.Forms.Button();
 			this.btnTan = new System.Windows.Forms.Button();
 			this.btnCos = new System.Windows.Forms.Button();
@@ -66,13 +66,21 @@
 			this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.massToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.numberFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stayOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.button12 = new System.Windows.Forms.Button();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.extraOperationsButton = new System.Windows.Forms.Button();
 			this.numberBox = new System.Windows.Forms.TextBox();
+			this.btnCot = new System.Windows.Forms.Button();
+			this.btnBackspace = new System.Windows.Forms.Button();
+			this.extraOperationsMenu1 = new VP_ANC.extraOperationsMenu();
+			this.btnE = new System.Windows.Forms.Button();
+			this.btnPi = new System.Windows.Forms.Button();
+			this.currentOperationText = new System.Windows.Forms.Label();
+			this.btnSignFlip = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -204,7 +212,7 @@
 			this.btnPower.Name = "btnPower";
 			this.btnPower.Size = new System.Drawing.Size(64, 64);
 			this.btnPower.TabIndex = 11;
-			this.btnPower.Text = "x^n";
+			this.btnPower.Text = "x^y";
 			this.btnPower.UseVisualStyleBackColor = true;
 			this.btnPower.Click += new System.EventHandler(this.BinaryOperatorButtonClicked);
 			// 
@@ -222,7 +230,7 @@
 			// btnMultiply
 			// 
 			this.btnMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnMultiply.Location = new System.Drawing.Point(394, 372);
+			this.btnMultiply.Location = new System.Drawing.Point(394, 371);
 			this.btnMultiply.Name = "btnMultiply";
 			this.btnMultiply.Size = new System.Drawing.Size(64, 64);
 			this.btnMultiply.TabIndex = 13;
@@ -259,14 +267,14 @@
 			this.btnModulo.Name = "btnModulo";
 			this.btnModulo.Size = new System.Drawing.Size(64, 64);
 			this.btnModulo.TabIndex = 16;
-			this.btnModulo.Text = "%";
+			this.btnModulo.Text = "mod";
 			this.btnModulo.UseVisualStyleBackColor = true;
 			this.btnModulo.Click += new System.EventHandler(this.BinaryOperatorButtonClicked);
 			// 
 			// btnFactorial
 			// 
 			this.btnFactorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnFactorial.Location = new System.Drawing.Point(464, 372);
+			this.btnFactorial.Location = new System.Drawing.Point(464, 371);
 			this.btnFactorial.Name = "btnFactorial";
 			this.btnFactorial.Size = new System.Drawing.Size(64, 64);
 			this.btnFactorial.TabIndex = 17;
@@ -285,30 +293,32 @@
 			this.btnRoot.UseVisualStyleBackColor = true;
 			this.btnRoot.Click += new System.EventHandler(this.BinaryOperatorButtonClicked);
 			// 
-			// button10
+			// clearButton
 			// 
-			this.button10.Location = new System.Drawing.Point(12, 165);
-			this.button10.Name = "button10";
-			this.button10.Size = new System.Drawing.Size(75, 23);
-			this.button10.TabIndex = 20;
-			this.button10.Text = "button10";
-			this.button10.UseVisualStyleBackColor = true;
+			this.clearButton.Location = new System.Drawing.Point(394, 165);
+			this.clearButton.Name = "clearButton";
+			this.clearButton.Size = new System.Drawing.Size(64, 23);
+			this.clearButton.TabIndex = 20;
+			this.clearButton.Text = "C";
+			this.clearButton.UseVisualStyleBackColor = true;
+			this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
 			// 
-			// button11
+			// clearEntryButton
 			// 
-			this.button11.Location = new System.Drawing.Point(12, 194);
-			this.button11.Name = "button11";
-			this.button11.Size = new System.Drawing.Size(75, 23);
-			this.button11.TabIndex = 21;
-			this.button11.Text = "button11";
-			this.button11.UseVisualStyleBackColor = true;
+			this.clearEntryButton.Location = new System.Drawing.Point(464, 165);
+			this.clearEntryButton.Name = "clearEntryButton";
+			this.clearEntryButton.Size = new System.Drawing.Size(64, 23);
+			this.clearEntryButton.TabIndex = 21;
+			this.clearEntryButton.Text = "CE";
+			this.clearEntryButton.UseVisualStyleBackColor = true;
+			this.clearEntryButton.Click += new System.EventHandler(this.clearEntryButton_Click);
 			// 
 			// btnEquals
 			// 
 			this.btnEquals.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnEquals.Location = new System.Drawing.Point(324, 441);
+			this.btnEquals.Location = new System.Drawing.Point(222, 441);
 			this.btnEquals.Name = "btnEquals";
-			this.btnEquals.Size = new System.Drawing.Size(64, 64);
+			this.btnEquals.Size = new System.Drawing.Size(96, 64);
 			this.btnEquals.TabIndex = 22;
 			this.btnEquals.Text = "=";
 			this.btnEquals.UseVisualStyleBackColor = true;
@@ -317,7 +327,7 @@
 			// btnTan
 			// 
 			this.btnTan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnTan.Location = new System.Drawing.Point(324, 372);
+			this.btnTan.Location = new System.Drawing.Point(324, 371);
 			this.btnTan.Name = "btnTan";
 			this.btnTan.Size = new System.Drawing.Size(64, 64);
 			this.btnTan.TabIndex = 23;
@@ -418,28 +428,39 @@
 			this.conversionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.distanceToolStripMenuItem,
             this.temperatureToolStripMenuItem,
-            this.massToolStripMenuItem});
+            this.massToolStripMenuItem,
+            this.numberFormatToolStripMenuItem});
 			this.conversionToolStripMenuItem.Name = "conversionToolStripMenuItem";
-			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.conversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.conversionToolStripMenuItem.Text = "Conversion";
 			// 
 			// distanceToolStripMenuItem
 			// 
 			this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
-			this.distanceToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.distanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.distanceToolStripMenuItem.Text = "Distance";
+			this.distanceToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// temperatureToolStripMenuItem
 			// 
 			this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-			this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.temperatureToolStripMenuItem.Text = "Temperature";
+			this.temperatureToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// massToolStripMenuItem
 			// 
 			this.massToolStripMenuItem.Name = "massToolStripMenuItem";
-			this.massToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.massToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.massToolStripMenuItem.Text = "Mass";
+			this.massToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
+			// 
+			// numberFormatToolStripMenuItem
+			// 
+			this.numberFormatToolStripMenuItem.Name = "numberFormatToolStripMenuItem";
+			this.numberFormatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.numberFormatToolStripMenuItem.Text = "Number Format";
+			this.numberFormatToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// propertiesToolStripMenuItem
 			// 
@@ -459,59 +480,141 @@
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.documentationToolStripMenuItem,
-            this.githubToolStripMenuItem});
+            this.githubToolStripMenuItem,
+            this.aboutToolStripMenuItem});
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
 			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.helpToolStripMenuItem.Text = "Help";
 			// 
-			// documentationToolStripMenuItem
-			// 
-			this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
-			this.documentationToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-			this.documentationToolStripMenuItem.Text = "Documentation";
-			// 
 			// githubToolStripMenuItem
 			// 
 			this.githubToolStripMenuItem.Name = "githubToolStripMenuItem";
-			this.githubToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.githubToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
 			this.githubToolStripMenuItem.Text = "Github";
 			this.githubToolStripMenuItem.Click += new System.EventHandler(this.githubToolStripMenuItem_Click);
 			// 
-			// button12
+			// aboutToolStripMenuItem
 			// 
-			this.button12.Location = new System.Drawing.Point(222, 232);
-			this.button12.Name = "button12";
-			this.button12.Size = new System.Drawing.Size(96, 23);
-			this.button12.TabIndex = 27;
-			this.button12.Text = "button12";
-			this.button12.UseVisualStyleBackColor = true;
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			// 
+			// extraOperationsButton
+			// 
+			this.extraOperationsButton.Location = new System.Drawing.Point(324, 194);
+			this.extraOperationsButton.Name = "extraOperationsButton";
+			this.extraOperationsButton.Size = new System.Drawing.Size(64, 23);
+			this.extraOperationsButton.TabIndex = 27;
+			this.extraOperationsButton.Text = "2nd";
+			this.extraOperationsButton.UseVisualStyleBackColor = true;
+			this.extraOperationsButton.Click += new System.EventHandler(this.extraOperationsButton_Click);
 			// 
 			// numberBox
 			// 
 			this.numberBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.numberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.numberBox.Location = new System.Drawing.Point(12, 46);
+			this.numberBox.Location = new System.Drawing.Point(12, 47);
+			this.numberBox.MaxLength = 14;
 			this.numberBox.Name = "numberBox";
+			this.numberBox.ReadOnly = true;
 			this.numberBox.Size = new System.Drawing.Size(516, 80);
 			this.numberBox.TabIndex = 28;
+			this.numberBox.TabStop = false;
 			this.numberBox.Text = "0";
 			this.numberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
+			// btnCot
+			// 
+			this.btnCot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnCot.Location = new System.Drawing.Point(324, 441);
+			this.btnCot.Name = "btnCot";
+			this.btnCot.Size = new System.Drawing.Size(64, 64);
+			this.btnCot.TabIndex = 29;
+			this.btnCot.Text = "cot";
+			this.btnCot.UseVisualStyleBackColor = true;
+			// 
+			// btnBackspace
+			// 
+			this.btnBackspace.Location = new System.Drawing.Point(464, 194);
+			this.btnBackspace.Name = "btnBackspace";
+			this.btnBackspace.Size = new System.Drawing.Size(64, 23);
+			this.btnBackspace.TabIndex = 31;
+			this.btnBackspace.Text = "<--";
+			this.btnBackspace.UseVisualStyleBackColor = true;
+			this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
+			// 
+			// extraOperationsMenu1
+			// 
+			this.extraOperationsMenu1.Location = new System.Drawing.Point(324, 231);
+			this.extraOperationsMenu1.Name = "extraOperationsMenu1";
+			this.extraOperationsMenu1.Size = new System.Drawing.Size(204, 274);
+			this.extraOperationsMenu1.TabIndex = 30;
+			this.extraOperationsMenu1.Visible = false;
+			// 
+			// btnE
+			// 
+			this.btnE.Location = new System.Drawing.Point(12, 194);
+			this.btnE.Name = "btnE";
+			this.btnE.Size = new System.Drawing.Size(64, 23);
+			this.btnE.TabIndex = 32;
+			this.btnE.Text = "e";
+			this.btnE.UseVisualStyleBackColor = true;
+			this.btnE.Click += new System.EventHandler(this.SpecialNumberButtonClicked);
+			// 
+			// btnPi
+			// 
+			this.btnPi.Location = new System.Drawing.Point(12, 165);
+			this.btnPi.Name = "btnPi";
+			this.btnPi.Size = new System.Drawing.Size(64, 23);
+			this.btnPi.TabIndex = 33;
+			this.btnPi.Text = "𝝿";
+			this.btnPi.UseVisualStyleBackColor = true;
+			this.btnPi.Click += new System.EventHandler(this.SpecialNumberButtonClicked);
+			// 
+			// currentOperationText
+			// 
+			this.currentOperationText.AutoSize = true;
+			this.currentOperationText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.currentOperationText.Location = new System.Drawing.Point(8, 24);
+			this.currentOperationText.Name = "currentOperationText";
+			this.currentOperationText.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.currentOperationText.Size = new System.Drawing.Size(183, 20);
+			this.currentOperationText.TabIndex = 34;
+			this.currentOperationText.Text = "text for binary operations";
+			this.currentOperationText.Visible = false;
+			// 
+			// btnSignFlip
+			// 
+			this.btnSignFlip.Location = new System.Drawing.Point(222, 231);
+			this.btnSignFlip.Name = "btnSignFlip";
+			this.btnSignFlip.Size = new System.Drawing.Size(96, 23);
+			this.btnSignFlip.TabIndex = 35;
+			this.btnSignFlip.Text = "+/-";
+			this.btnSignFlip.UseVisualStyleBackColor = true;
+			this.btnSignFlip.Click += new System.EventHandler(this.btnSignFlip_Click);
+			// 
 			// ancMainWindow
 			// 
+			this.AcceptButton = this.btnEquals;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightGray;
 			this.ClientSize = new System.Drawing.Size(540, 517);
+			this.Controls.Add(this.btnSignFlip);
+			this.Controls.Add(this.currentOperationText);
+			this.Controls.Add(this.btnPi);
+			this.Controls.Add(this.btnE);
+			this.Controls.Add(this.btnBackspace);
+			this.Controls.Add(this.btnCot);
 			this.Controls.Add(this.numberBox);
-			this.Controls.Add(this.button12);
+			this.Controls.Add(this.extraOperationsButton);
 			this.Controls.Add(this.btnSin);
 			this.Controls.Add(this.btnCos);
 			this.Controls.Add(this.btnTan);
 			this.Controls.Add(this.btnEquals);
-			this.Controls.Add(this.button11);
-			this.Controls.Add(this.button10);
+			this.Controls.Add(this.clearEntryButton);
+			this.Controls.Add(this.clearButton);
 			this.Controls.Add(this.btnRoot);
 			this.Controls.Add(this.btnFactorial);
 			this.Controls.Add(this.btnModulo);
@@ -532,6 +635,7 @@
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.button0);
 			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.extraOperationsMenu1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
@@ -568,8 +672,8 @@
 		private System.Windows.Forms.Button btnModulo;
 		private System.Windows.Forms.Button btnFactorial;
 		private System.Windows.Forms.Button btnRoot;
-		private System.Windows.Forms.Button button10;
-		private System.Windows.Forms.Button button11;
+		private System.Windows.Forms.Button clearButton;
+		private System.Windows.Forms.Button clearEntryButton;
 		private System.Windows.Forms.Button btnEquals;
 		private System.Windows.Forms.Button btnTan;
 		private System.Windows.Forms.Button btnCos;
@@ -586,13 +690,21 @@
 		private System.Windows.Forms.ToolStripMenuItem distanceToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem temperatureToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
-		private System.Windows.Forms.Button button12;
+		private System.Windows.Forms.Button extraOperationsButton;
 		private System.Windows.Forms.ToolStripMenuItem blackoutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem enEeEsToolStripMenuItem;
 		private System.Windows.Forms.TextBox numberBox;
 		private System.Windows.Forms.ToolStripMenuItem massToolStripMenuItem;
+		private System.Windows.Forms.Button btnCot;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private extraOperationsMenu extraOperationsMenu1;
+		private System.Windows.Forms.ToolStripMenuItem numberFormatToolStripMenuItem;
+		private System.Windows.Forms.Button btnBackspace;
+		private System.Windows.Forms.Button btnE;
+		private System.Windows.Forms.Button btnPi;
+		private System.Windows.Forms.Label currentOperationText;
+		private System.Windows.Forms.Button btnSignFlip;
 	}
 }
 

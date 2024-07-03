@@ -9,16 +9,17 @@ using System.Windows.Forms;
 
 namespace VP_ANC
 {
+	// This class handles the mathematics
 
 	internal static class Calculator
 	{
-		public static ulong Factorial(ulong number)
+		private static ulong Factorial(ulong number)
 		{
 			if (number <= 2) {
 				return number;
 			}
 			ulong result = 1;
-			for (ulong i = number - 1; i >= 2; i--)
+			for (ulong i = number; i >= 2; i--)
 			{
 				result *= i;
 			}
@@ -37,20 +38,20 @@ namespace VP_ANC
 				case "-":
 					result = X - Y;
 					break;
-				case "*":
+				case "x":
 					result = X * Y;
 					break;
 				case "/":
 					result = X / Y;
 					break;
-				case "%":
+				case "mod":
 					result = X % Y;
 					break;
 				case "^":
 					result = Math.Pow(X, Y);
 					break;
 				case "root":
-					result = Math.Pow(X, 1 / Y);
+					result = Math.Pow(Y, 1 / X);
 					break;
 				case "sin":
 					result = Math.Sin(X);
@@ -62,16 +63,57 @@ namespace VP_ANC
 					result = Math.Tan(X);
 					break;
 				case "cot":
-					// TODO: Add Cot(X)
+					result = (Math.Cos(X) / Math.Sin(X));
+					break;
+				case "!":
+					result = Factorial((ulong)X);
+					break;
+				case "arcsin":
+					result = Math.Asin(X);
+					break;
+				case "arccos":
+					result = Math.Acos(X);
+					break;
+				case "arctan":
+					result = Math.Atan(X);
+					break;
+				case "arccot":
+					result = Math.Atan(1 / X);
+					break;
+				case "sec":
+					result = 1 / Math.Cos(X);
+					break;
+				case "csc":
+					result = 1 / Math.Sin(X);
+					break;
+				case "arcsec":
+					result = Math.Acos(1 / X);
+					break;
+				case "arccsc":
+					result = Math.Asin(1 / X);
+					break;
+				case "log":
+					result = Math.Log(X, Y);
+					break;
+				case "ln":
+					result = Math.Log(X);
+					break;
+				case "nPr":
+					result = Factorial((ulong)X) / Factorial((ulong)(X-Y));
+					break;
+				case "nCr":
+					result = Factorial((ulong)X) / (Factorial((ulong)Y) * Factorial((ulong)(X - Y)));
 					break;
 				default:
-					throw new ArgumentException();
+					MessageBox.Show("Operation not implemented!", "ANC - Error");
+					break;
 			}
 
 			return result;
 		}
 	}
 
+	// Class for the app's appearance
 	internal class AppTheme
 	{
 		ToolStripMenuItem Current;
@@ -116,6 +158,26 @@ namespace VP_ANC
 				{
 					MenuStrip menu = item as MenuStrip;
 					menu.ForeColor = MenuStripText;
+				}
+				// Change appreance of extraOperationsMenu
+				else if (item is extraOperationsMenu)
+				{
+					extraOperationsMenu extra = item as extraOperationsMenu;
+					extra.BackColor = Background;
+                    foreach (Button button in extra.Controls)
+                    {
+						button.BackColor = ButtonBackground;
+						button.ForeColor = ButtonText;
+						button.FlatAppearance.BorderColor = ButtonBorder;
+						button.FlatAppearance.BorderSize = 2;
+						button.FlatStyle = FlatStyle.Flat;
+					}
+                }
+				// Change text color for labels
+				else if (item is Label)
+				{
+					Label label = item as Label;
+					label.ForeColor = MenuStripText;
 				}
 			}
 
@@ -188,6 +250,20 @@ namespace VP_ANC
 			}
 
 			ApplyChanges(BG, buttonBG, buttonBorder, buttonText, numBoxBG, numboxText, menuStripText);
+		}
+	}
+	// Class for the conversion tool
+	internal static class Converter
+	{
+		public static string ConvertNumberFormat(string Converting, double Number, string Converted)
+		{
+			Tuple<string, string> ConversionPair = new Tuple<string, string>(Converting, Converted);
+			switch (ConversionPair)
+			{
+				
+
+			}
+			return null;
 		}
 	}
 }
