@@ -76,11 +76,11 @@
 			this.numberBox = new System.Windows.Forms.TextBox();
 			this.btnCot = new System.Windows.Forms.Button();
 			this.btnBackspace = new System.Windows.Forms.Button();
-			this.extraOperationsMenu1 = new VP_ANC.extraOperationsMenu();
 			this.btnE = new System.Windows.Forms.Button();
 			this.btnPi = new System.Windows.Forms.Button();
 			this.currentOperationText = new System.Windows.Forms.Label();
 			this.btnSignFlip = new System.Windows.Forms.Button();
+			this.extraOperationsMenu1 = new VP_ANC.extraOperationsMenu();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -438,7 +438,7 @@
 			// 
 			this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
 			this.distanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.distanceToolStripMenuItem.Text = "Distance";
+			this.distanceToolStripMenuItem.Text = "Length";
 			this.distanceToolStripMenuItem.Click += new System.EventHandler(this.ConversionMenu_Activate);
 			// 
 			// temperatureToolStripMenuItem
@@ -544,14 +544,6 @@
 			this.btnBackspace.UseVisualStyleBackColor = true;
 			this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
 			// 
-			// extraOperationsMenu1
-			// 
-			this.extraOperationsMenu1.Location = new System.Drawing.Point(324, 231);
-			this.extraOperationsMenu1.Name = "extraOperationsMenu1";
-			this.extraOperationsMenu1.Size = new System.Drawing.Size(204, 274);
-			this.extraOperationsMenu1.TabIndex = 30;
-			this.extraOperationsMenu1.Visible = false;
-			// 
 			// btnE
 			// 
 			this.btnE.Location = new System.Drawing.Point(12, 194);
@@ -593,6 +585,14 @@
 			this.btnSignFlip.Text = "+/-";
 			this.btnSignFlip.UseVisualStyleBackColor = true;
 			this.btnSignFlip.Click += new System.EventHandler(this.btnSignFlip_Click);
+			// 
+			// extraOperationsMenu1
+			// 
+			this.extraOperationsMenu1.Location = new System.Drawing.Point(324, 231);
+			this.extraOperationsMenu1.Name = "extraOperationsMenu1";
+			this.extraOperationsMenu1.Size = new System.Drawing.Size(204, 274);
+			this.extraOperationsMenu1.TabIndex = 30;
+			this.extraOperationsMenu1.Visible = false;
 			// 
 			// ancMainWindow
 			// 

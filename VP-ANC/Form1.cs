@@ -24,6 +24,7 @@ namespace VP_ANC
 		string operation, binaryOperation;
 		bool isSecondOperand;
 		string OperationText;
+		ConversionMenu cm;
 
 		public ancMainWindow()
 		{
@@ -61,6 +62,7 @@ namespace VP_ANC
 		{
 			string selectedItem = e.ClickedItem.Text;
 			theme.ChangeTheme(themes[selectedItem]);
+			cm?.ApplyTheme(BackColor, btnAdd.BackColor, btnAdd.ForeColor, numberBox.BackColor, numberBox.ForeColor, btnAdd.FlatAppearance.BorderColor);
 		}
 
 		private void btnEquals_Click(object sender, EventArgs e)
@@ -246,7 +248,9 @@ namespace VP_ANC
 			if (sender is ToolStripMenuItem)
 			{
 				string type = (sender as ToolStripMenuItem).Text;
-				new ConversionMenu(type).Show();
+				cm = new ConversionMenu(type);
+				cm.ApplyTheme(BackColor, btnAdd.BackColor, btnAdd.ForeColor, numberBox.BackColor, numberBox.ForeColor, btnAdd.FlatAppearance.BorderColor);
+				cm.Show();
 			}
 		}
 	}
