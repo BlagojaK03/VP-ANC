@@ -24,6 +24,7 @@ namespace VP_ANC
 		string operation, binaryOperation;
 		bool isSecondOperand;
 		string OperationText;
+		ConversionMenu cm;
 
 		public ancMainWindow()
 		{
@@ -50,6 +51,8 @@ namespace VP_ANC
 			}
 
 			TopMost = stayOnTopToolStripMenuItem.Checked;
+			if (cm != null)
+				cm.TopMost = stayOnTopToolStripMenuItem.Checked;
 		}
 
 		private void githubToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,6 +64,7 @@ namespace VP_ANC
 		{
 			string selectedItem = e.ClickedItem.Text;
 			theme.ChangeTheme(themes[selectedItem]);
+			cm?.ApplyTheme(BackColor, btnAdd.BackColor, btnAdd.ForeColor, numberBox.BackColor, numberBox.ForeColor, btnAdd.FlatAppearance.BorderColor);
 		}
 
 		private void btnEquals_Click(object sender, EventArgs e)
@@ -71,8 +75,11 @@ namespace VP_ANC
 				return;
 			}
 			Y = Convert.ToDouble(numberBox.Text);
-			currentOperationText.Text = OperationText + $"{Y} = ";
+			currentOperationText.Text = (operation == "nCr" || operation == "nPr") ?
+				OperationText + $"{Math.Round(Y)} = " :
+				OperationText + $"{Y} = ";
 			numberBox.Text = Calculator.Calculate(X, binaryOperation ?? operation, Y).ToString();
+			isSecondOperand = false;
 		}
 
 		private void NumberButtonClicked(object sender, EventArgs e)
@@ -126,11 +133,11 @@ namespace VP_ANC
 						operation = "root";
 						break;
 					case "nCr":
-						OperationText = $"Class {X} combination of ";
+						OperationText = $"Class {Math.Round(X)} combination of ";
 						operation = button.Text;
 						break;
 					case "nPr":
-						OperationText = $"Class {X} permutation of ";
+						OperationText = $"Class {Math.Round(X)} permutation of ";
 						operation = button.Text;
 						break;
 					case "log":
@@ -159,7 +166,7 @@ namespace VP_ANC
 				{
 					X = double.Parse(numberBox.Text);
 					operation = button.Text;
-					OperationText = (operation == "!") ? $"{X}! =" : $"{operation}({X})";
+					OperationText = (operation == "!") ? $"{Math.Round(X)}! =" : $"{operation}({X})";
 					currentOperationText.Text = OperationText;
 					currentOperationText.Visible = true;
 					numberBox.Text = Calculator.Calculate(X, operation).ToString();
@@ -246,7 +253,10 @@ namespace VP_ANC
 			if (sender is ToolStripMenuItem)
 			{
 				string type = (sender as ToolStripMenuItem).Text;
-				new ConversionMenu(type).Show();
+				cm = new ConversionMenu(type);
+				cm.ApplyTheme(BackColor, btnAdd.BackColor, btnAdd.ForeColor, numberBox.BackColor, numberBox.ForeColor, btnAdd.FlatAppearance.BorderColor);
+				cm.TopMost = TopMost;
+				cm.Show();
 			}
 		}
 	}
