@@ -16,8 +16,13 @@ namespace VP_ANC
 		private static double Factorial(double number)
 		{
 			// the argument is rounded to avoid calculating factorial on a real number instead of a whole
+			if (number < 0)
+			{
+				MessageBox.Show("Cannot calculate factorial of negative number!", "ANC - Error");
+				return 0;
+			}
 			if (number <= 2) {
-				return number;
+				return (number == 0) ? 1 : number;
 			}
 			double result = 1;
 			for (double i = number; i >= 2; i--)
